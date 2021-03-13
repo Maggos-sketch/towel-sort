@@ -3,11 +3,17 @@
 
 module.exports = function towelSort (matrix) {
   let res = [];
-  for (let row of matrix) {
-    for (let num of row) {
-      res.push(num);
+    try {
+        for (let row of matrix) {
+            if (matrix.indexOf(row) % 2 != 0) {
+                row = row.reverse();
+            }
+            for (let n of row) {
+                res.push(n);
+            }
+        }
+    } catch (e) {
+        res = [];
     }
-  }
-  res.sort();
-  return res;
+    return res;
 }
